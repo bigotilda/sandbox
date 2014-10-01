@@ -1,4 +1,4 @@
-Javascript (sample files from a Titanium mobile project)
+Javascript (Titanium)
 =======
 
 These are some sample files from a Titanium mobile project. Titanium projects
