@@ -1,9 +1,9 @@
 <?
 /**************************************************************************
  * This file should be run as a cron job on the server. It clears out
- * old mysql dump files from the $DUMP_DIR directory on the server. These
- * files are created by MySQLConnect.jar whenever a database table is about
- * to be altered by a database write operation.
+ * old mysql dump files from the $DUMP_DIR directory on the server.These files
+ * are created whenever a database table is about to be altered by a database
+ * write operation.
  *
  * Author: NDN 2005.01.12
  **************************************************************************/

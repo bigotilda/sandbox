@@ -7,7 +7,7 @@ if (!$_GET['tester']){
    }
    else{
       $out = "GET /~ndn/http.php?tester=1 HTTP/1.0\r\n";
-      $out .= "Host: cops.teamgleim.com\r\n";
+      $out .= "Host: www.another_example.com\r\n";
       $out .= "X_FORWARDED_FOR: 127.0.0.2\r\n";
       $out .= "Connection: Close\r\n\r\n";
 
