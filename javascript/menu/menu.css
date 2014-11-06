@@ -1,0 +1,52 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {position: relative;}
+
+div.submenu {
+	position: absolute;
+	left: 15em;
+	top: -1px;
+	margin-left: -1px;
+}
+
+div#topmenu {
+	position: relative;
+	top: 0em;
+	left: 0em;
+}
+
+div.menuitem {
+	box-sizing: border-box;
+	color: rgb(199,95,34);
+	background-color: rgb(16,16,16);
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+	width: 15em;
+  position: relative;
+  border: 1px solid;
+  border-color: rgb(40,38,38);
+}
+
+div.menuitem:hover {
+	background-color: rgb(30,21,21);
+}
+
+div.active {
+	color: rgb(255,255,255);
+}
+
+div.arrow {
+	font-weight: bold;
+	float: right;
+}
+div.arrow:after {
+	content: '\3009';
+}
+
+.hidden {
+	display: none;
+}
