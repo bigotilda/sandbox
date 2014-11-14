@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nathan Simple User List</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="//static.citrixonlinecdn.com/web-library-2/styles/common.css">
+  <link rel="stylesheet" type="text/css" href="//static.citrixonlinecdn.com/web-library-2/brands/g2p.css">
+  <script src="//static.citrixonlinecdn.com/web-library-2/scripts/web-library.js"></script>
+  
+  <!-- Nathan's stuff -->
+  <link rel="stylesheet" type="text/css" href="css/user_list.css">
+  <script src="js/user_list.js"></script>
+</head>
+<body class="g2p">
+  <!-- @NOTE with more time I would better handle long names, which right now just overflow and/or cutoff (not sure how the
+       table-data class is fully working regarding that) -->
+  <div class="content-section">
+    <div class="border-box gray">
+      <div class="border-box-content">
+        <div class="border-box white">
+          <div class="border-box-content">
+            <form id="user-form">
+              <div class="form-row">
+                <label for="firstName">User Name</label>
+                <div class="form-row-column column-11"><input id="firstName" type="text" title="First Name"></div>
+                <div class="form-row-column column-11 push-2"><input id="lastName" type="text" title="Last Name"></div>
+              </div>
+              <div class="form-row">
+                <div class="form-row-column column-11"><button id="add-users"><strong>Add User</strong></button></div>                
+              </div>
+              <div id="errs" class="form-row hide">
+                <div class="form-row-column column-22"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="border-box white">
+          <div class="border-box-content">
+            <h2>Current Users:</h2>
+            <div id="users-table" class="table-data">
+              <div class="table-data-content">
+                <ul class="table-data-header">
+                  <li class="column-11"><a href="#sort" class="sort asc">First Name</a></li>
+                  <li class="column-11"><a href="#sort" class="sort asc">Last Name</a></li>
+                  <li class="column-2"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+    <div>
+      <div class="border-box gray">
+        <div class="border-box-content">
+          <div class="border-box white">
+            <div class="border-box-content">
+              <h2>Available Licenses: <span id="available-licenses">Blah</span></h2>
+            </div>
+          </div>    
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-content">
+      <div class="footer-nav">
+        <ul class="nav-links">
+          <li class="last-child"><a rel="external" href="http://static.citrixonlinecdn.com/web-library-2/index.html">Citrix Online Web Library</a></li>
+        </ul>
+      </div>
+      <div class="footer-logo"></div>
+    </div>
+  </div>
+  
+  <!-- templates -->
+  
+  <div id="user-row-template" class="hide">
+    <ul class="table-data-row">
+      <li class="column-11"><span class="fn"></span></li>
+      <li class="column-11"><span class="ln"></span></li>
+      <li class="column-2"><a href="#" class="remove-user">X</a></li>
+    </ul>
+  </div>
+  
+  <div id="added-user-notify" class="message-banner confirmation-banner sheet hide">
+    <div class="banner-content">
+      <p>User <strong><span class="template"></span></strong> has been added to the list!</p>
+    </div>
+  </div>
+  
+  <div id="modal-user" class="hide" title="User Details" data-pos="0">
+    <p><strong><span class="tmpl-name"></span></strong></p>
+    <p>You may remove this user from here if you don't like them.</p>
+    <div class="modal-actions">
+      <a id="remove-user-modal" class="symphony">
+        <div class="btn-bg"><span>Remove User</span></div>
+      </a>
+      <a class="cancel-modal" href="#close">Cancel</a>
+    </div>
+  </div>
+</body>
+
+</html>

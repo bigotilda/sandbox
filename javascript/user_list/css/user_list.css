@@ -1,0 +1,9 @@
+.err {
+	color: red;
+}
+
+/* user row transition */
+ul.table-data-row {
+	height: 0em;
+	transition: height 0.3s;
+}
