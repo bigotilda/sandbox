@@ -1,12 +1,12 @@
-// For a 'real' project with more time, I would choose likely choose to use a client-side MVC framework like Backbone.js, which lends
+// For a 'real' project with more time, I would use a client-side MVC framework like Backbone.js, which lends
 // itself nicely to single-page data-backed apps (in this case our data is our user list). But for simplicity and to save time I'll just
-// manually handle the DOM, events, etc
+// manually handle the DOM, events, etc.
 
 // @NOTE also to save some time I'm not worrying too much about polluting the global scope with this; normally I would use either an
 // anonymous function wrapper, an explicit namespace, or some other libary-provided mechanism, or whatever is recommended for the current
 // project
 
-// @NOTE I developed/tested this with the latest chrome browser
+// @NOTE I developed/tested this with the latest chrome browser.
 
 // @NOTE some time was spent learning the Citrix Web Libary, and I thought that the library would provide data table sorting out of the 
 // box, but either it doesn't or I missed it. So I didn't leave myself time to implement the column sorting myself, I left  that to the end
