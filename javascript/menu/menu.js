@@ -69,33 +69,59 @@
       }
     ]
   };
-  
+
+  /**
+   * Return the ancestors (starting with and including self) of the specified ele that contain the specified CSS class
+   * (subtype) up to (but not including) the element with name matching the container param. Goes in order starting from
+   * the ele up the tree until the container (exclusive).
+   *
+   * @param container
+   * @param subtype
+   * @param ele
+   * @returns {Array}
+   */
+  var get_ancestors = function(container, subtype, ele){
+    var ancestors = [ele];
+    while (ele.parentElement.tagName != container){
+      if (ele.classList.contains(subtype))
+        ancestors.push(ele);
+      ele = ele.parentElement;
+    }
+    return ancestors;
+  };
+
+  /**
+   * Currently not used but could be useful tool
+   */
+  var get_all_ancestors_for = function(elements, container, subtype) {
+    return elements.map(get_ancestors.bind(null, container, subtype));
+  };
+
+  /**
+   * Return true if the specified ele is not contained in the specified set of ancestor elements.
+   * @param ancestors: Array of ancestor DOM elements
+   * @param ele: DOM element to check
+   */
+  var not_under = function(ancestors, ele) {
+    return ancestors.indexOf(ele) == -1;
+  };
+
+  /**
+   * Hide a submenu element
+   * @param submenu: a DOM element representing a submenu to be hidden
+   */
+  var hide_submenu = function(submenu) {
+    submenu.classList.add('hidden');
+  };
+
   /**
    * Hide all submenus except the specified one and any of its ancestor submenus
    */
   var hide_submenus = function(except){
     var submenus = document.getElementsByClassName('submenu');
-    var excepts = [];
-    var element = except;
-    while (element.parentElement.tagName != 'NAV'){
-      if (element.classList.contains('submenu'))
-        excepts.push(element);
-      element = element.parentElement;
-    } 
-    for (var i=0; i<submenus.length; i++){
-      var hide = true;
-      for (var j=0; j<excepts.length; j++){
-        if (submenus[i] == excepts[j]){
-          hide = false
-          break;
-        }
-      }
-       
-      // hide the submenus
-      if (hide)
-        submenus[i].classList.add('hidden');
-    }
-  }
+    var ancestors = get_ancestors('NAV', 'submenu', except);
+    Array.prototype.filter.call(submenus, not_under.bind(null, ancestors)).forEach(hide_submenu);
+  };
   
   /**
    * Deactivate all menu items except the specified one and its direct ancestor menu items.
@@ -125,7 +151,16 @@
         menuitems[i].classList.remove('active');
     }
   }
-  
+
+  /**
+   * Process the specified message
+   */
+  var do_message = function(msg) {
+    var msg_container = document.getElementById('message');
+    msg_container.innerText = msg;
+    msg_container.classList.remove('hidden');
+  };
+
   /**
    * Click event for a leaf in the menu, just popup a message.
    */
@@ -133,7 +168,7 @@
     hide_submenus(this.parentElement);
     deactivate_items(this);
     e.stopPropagation();
-    alert('Selected "' + this.textContent + '"');
+    do_message('Selected "' + this.textContent + '"');
   };
   
   /**
@@ -197,7 +232,7 @@
   
   // make sure body is loaded before adding nodes to the dom
   document.body.onload = function(){
-    menu_dom = parse_menu(the_menu);
+    var menu_dom = parse_menu(the_menu);
     document.body.getElementsByTagName('nav')[0].appendChild(menu_dom);
   };
 })();
