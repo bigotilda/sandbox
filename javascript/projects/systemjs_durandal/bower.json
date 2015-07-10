@@ -1,0 +1,30 @@
+{
+  "name": "systemjs",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bigotilda/sandbox",
+  "authors": [
+    "Nathan Nadeau <bigotilda@gmail.com>"
+  ],
+  "description": "SystemJS playground",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "system.js": "~0.18.4",
+    "bootstrap": ">=3.0.0",
+    "font-awesome": ">=4.0.0",    
+    "durandal": ">=2.0.0",
+    "durandal-almond": "master",
+    "json2": "*"
+  }
+}
