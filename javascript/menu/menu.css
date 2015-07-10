@@ -50,3 +50,13 @@ div.arrow:after {
 .hidden {
 	display: none;
 }
+
+#message-container {
+	margin-top: 2em;
+}
+
+#message {
+	padding: 1em;
+	color: white;
+	background-color: rgb(16,16,16);
+}
